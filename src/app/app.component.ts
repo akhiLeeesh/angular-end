@@ -3,7 +3,6 @@ import { StudentAuthService } from './services/student-auth.service';
 import { AdminAuthService } from './services/admin-auth.service';
 import { Router, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
-import { HttpClient } from '@angular/common/http'; // added
 
 @Component({
   selector: 'app-root',
@@ -12,17 +11,13 @@ import { HttpClient } from '@angular/common/http'; // added
 })
 export class AppComponent implements OnInit {
   title = 'nexmind_lms';
-  static instance: AppComponent; // static instance
+
 
   constructor(
     private studentAuthService: StudentAuthService,
     private adminAuthService: AdminAuthService,
-    private router: Router,
-    private http: HttpClient // added
-  ) {
-    AppComponent.instance = this; // set static reference
-
-    this.router.events.pipe(
+    private router: Router
+  ) {  this.router.events.pipe(
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       setTimeout(() => {
@@ -32,6 +27,7 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
+
     this.studentAuthService.startTokenExpirationWatcher();
     this.adminAuthService.startTokenExpirationWatcher();
     if (this.studentAuthService.isLoggedIn()) {
@@ -41,17 +37,4 @@ export class AppComponent implements OnInit {
     }
   }
 
-  // ✅ Simple backend call method
-  getCourses() {
-    this.http.get('http://localhost:5000/api/courses')
-      .subscribe(
-        (data) => {
-          console.log('Courses from backend:', data);
-          alert(JSON.stringify(data)); // for simple testing
-        },
-        (error) => {
-          console.error('Error fetching courses:', error);
-        }
-      );
-  }
 }
