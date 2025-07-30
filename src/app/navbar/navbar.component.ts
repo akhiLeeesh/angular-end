@@ -34,6 +34,7 @@ export class NavbarComponent {
     this.closeMobileNav();
     this.router.navigate(['/user']);
   }
+  
 
   scrollTo(sectionId: string, event: Event) {
     event.preventDefault();
