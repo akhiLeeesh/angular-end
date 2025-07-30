@@ -8,18 +8,24 @@
     <!-- Mobile Toggle Button -->
     <i class="mobile-nav-toggle bi bi-list d-xl-none" (click)="toggleMobileNav()"></i>
 
-   <nav id="navmenu" class="navmenu" [class.navmenu-active]="mobileNavActive">
-  <ul>
-    <li><a href="" (click)="scrollTo('hero', $event)">Home</a></li>
-    <li><a href="" (click)="scrollTo('courses', $event)">Courses</a></li>
-    <li><a routerLink="/upcoming_batches" (click)="closeMobileNav()">Upcoming Batches</a></li>
-    <li><a href="" (click)="scrollTo('contact', $event)">Contact</a></li>
-    <li><a routerLink="/admin" (click)="closeMobileNav()">Admin</a></li>
-    <li class="d-xl-none">
-      <a class="btn-getstarted-mobile" (click)="navigateToLogin()">Student Login</a>
-    </li>
-  </ul>
-</nav>
+    <nav id="navmenu" class="navmenu" [class.navmenu-active]="mobileNavActive">
+      <ul>
+        <li><a href="" (click)="scrollTo('hero', $event)">Home</a></li>
+        <li><a href="" (click)="scrollTo('courses', $event)">Courses</a></li>
+
+        <!-- ✅ Your Button -->
+        <li>
+          <button (click)="callBackend()">Load Courses (Backend)</button>
+        </li>
+
+        <li><a routerLink="/upcoming_batches" (click)="closeMobileNav()">Upcoming Batches</a></li>
+        <li><a href="" (click)="scrollTo('contact', $event)">Contact</a></li>
+        <li><a routerLink="/admin" (click)="closeMobileNav()">Admin</a></li>
+        <li class="d-xl-none">
+          <a class="btn-getstarted-mobile" (click)="navigateToLogin()">Student Login</a>
+        </li>
+      </ul>
+    </nav>
 
     <!-- Desktop Student Login Button -->
     <a class="btn-getstarted d-none d-xl-inline-flex" (click)="navigateToLogin()">Student Login</a>
