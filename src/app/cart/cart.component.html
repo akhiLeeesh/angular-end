@@ -1,0 +1,137 @@
+<app-user-nav></app-user-nav>
+
+
+<!-- new amz-style -->
+<div class="container my-4">
+  <div class="row">
+
+    <!-- LEFT COLUMN -->
+    <div class="col-lg-8">
+      <h4>Shopping Cart</h4>
+
+
+      <hr />
+
+      <div class="text-center fw-bold" *ngIf="cartItems.length < 1">
+        <h3>Your cart is empty</h3>
+
+      </div>
+
+
+      <div *ngFor="let item of cartItems" class="d-flex border-bottom py-3">
+        <input type="checkbox" class="form-check-input me-3" />
+
+        <img [src]="item.imageUrl" class="me-3" style="width: 200px; height: auto;" />
+
+        <div class="flex-grow-1">
+          <h5>{{ item.title }}</h5>
+          <p class="text-success">Available:{{item.available}}</p>
+
+          <div class="d-flex align-items-center mb-2">
+            <!-- <button class="btn btn-sm btn-outline-secondary me-1">-</button>
+            <span class="mx-2">1</span>
+            <button class="btn btn-sm btn-outline-secondary me-3">+</button> -->
+            <button type="button" class="cart-button " (click)="removeFromCart(item)">
+              <i class="fa fa-trash"></i> Remove from Cart
+            </button>
+
+
+            <!-- <a href="#" class="text-danger me-3" (click)="removeFromCart(item)">Delete</a> -->
+            <a href="#" class="text-secondary">Save for later</a>
+          </div>
+        </div>
+
+        <div class="text-end fw-bold">
+          ₹{{ item.price }}
+        </div>
+      </div>
+      <div class="text-end fw-bold" *ngIf="cartItems.length > 0">
+        <p> Total price :₹</p>
+      </div>
+    </div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col-lg-4">
+      <!-- Summary Box: Only show if cart is not empty -->
+      <div class="card p-3 mb-3 shadow-sm" *ngIf="cartItems.length > 0">
+        <div class="progress mb-2" style="height: 8px;">
+          <div class="progress-bar bg-success" style="width: 100%;"></div>
+        </div>
+        <p class="text-success mb-2">
+          Your order is eligible for <b>FREE Delivery</b>.
+        </p>
+
+        <div class="d-flex justify-content-between fw-bold">
+          <span>Subtotal ({{ cartItems.length }} items):</span>
+          <span>₹{{ totalPrice }}</span>
+        </div>
+
+        <div class="form-check my-2">
+          <input class="form-check-input" type="checkbox" id="gift" />
+          <label class="form-check-label" for="gift">This order contains a gift</label>
+        </div>
+
+        <button class="btn btn-warning w-100 mt-2">Proceed to Buy</button>
+      </div>
+
+      <!-- Recommended Courses -->
+
+    <div class="card p-4 shadow-sm">
+  <h4 class="mb-4">Recommended Courses</h4>
+
+  <!-- Scrollable container with hidden scrollbar -->
+  <div 
+    [ngClass]="{ 'limited-height': !showAllRecommended }" 
+    class="course-scroll-container"
+  >
+    <div *ngFor="let item of displayedCourses" class="mb-3">
+      <div class="d-flex align-items-center">
+        <img 
+          [src]="item.imageUrl" 
+          width="100" 
+          height="70" 
+          class="me-3 rounded shadow-sm" 
+          style="object-fit: cover;" 
+        />
+        <div>
+          <div class="fw-semibold" style="font-size: 1.1rem;">{{ item.title }}</div>
+          <button class="btn btn-primary btn-sm mt-2 px-3 py-1" (click)="addToCart(item)">
+            <i class="fa fa-shopping-cart me-1"></i> Add to Cart
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toggle Button -->
+  <button 
+    class="btn btn-outline-secondary btn-sm mt-2"
+    *ngIf="popularCourses.length > 2"
+    (click)="showAllRecommended = !showAllRecommended"
+  >
+    {{ showAllRecommended ? 'Show Less' : 'Show More' }}
+  </button>
+</div>
+
+
+    </div>
+
+  </div>
+</div>
+
+
+
+<!-- edit -->
+<!-- Recommended Courses -->
+<!-- <div class="card p-3 shadow-sm">
+        <h5 class="mb-3">Recommended Courses</h5>
+        <div *ngFor="let course of recommendedCourses" class="mb-2">
+          <div class="d-flex align-items-center">
+            <img [src]="course.imageUrl" width="60" height="40" class="me-2 rounded" />
+            <div>
+              <div class="fw-bold small">{{ course.title }}</div>
+              <button class="btn btn-sm btn-outline-primary mt-1" (click)="addToCart(course)">Add to cart</button>
+            </div>
+          </div>
+        </div>
+      </div> -->

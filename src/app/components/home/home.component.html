@@ -1,0 +1,374 @@
+<app-navbar></app-navbar>
+
+
+<main class="main">
+
+  <!-- 🎯 Hero Section -->
+ 
+<div class="banner-wrapper">
+  <img class="bannerimg" src="../../../assets/img/about/95159561-c1ef-4997-a6c8-651927fe0290.jpg" alt="Banner Image">
+  <a routerLink="/upcoming_batches" class="banner-btn-outline-orange">Explore Our Courses</a>
+</div> 
+
+
+<!-- =================================================================================== -->
+  <!-- 🚀 Courses Section -->
+  <section id="courses" class="courses-section py-3 bg-light">
+
+    <div class="container">
+      <h2 class="text-center fw-bold ">Our Popular Courses</h2>
+
+      <div class="row g-4 justify-content-center">
+
+        <div class="col-md-6 col-lg-3">
+          <div class="course-card text-center" (click)="goToCourse('/gen-ai')">
+            <img src="assets/img/about/role2.jpg" alt="Generative AI" class="img-fluid rounded-4 mb-3">
+            <h3>Generative AI</h3>
+            <p>ChatGPT, Prompting, LLMs</p>
+            <button class="course-btn mt-2">Know More</button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="course-card text-center" (click)="goToCourse('/datascience')">
+            <img src="assets/img/about/role1.jpg" alt="Data Science" class="img-fluid rounded-4 mb-3">
+            <h3>Data Science</h3>
+            <p>Python, R, Visualization</p>
+            <button class="course-btn mt-2">Know More</button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="course-card text-center" (click)="goToCourse('/fullstack')">
+            <img src="assets/img/about/role3.jpg" alt="Full Stack Development" class="img-fluid rounded-4 mb-3">
+            <h3>Full Stack Development</h3>
+            <p>Angular, Node, MongoDB</p>
+            <button class="course-btn mt-2">Know More</button>
+          </div>
+        </div>
+
+        <div class="col-md-6 col-lg-3">
+          <div class="course-card text-center" (click)="goToCourse('/testing')">
+            <img src="assets/img/about/role4.jpg" alt="Software Testing" class="img-fluid rounded-4 mb-3">
+            <h3>Software Testing</h3>
+            <p>Manual & Automation</p>
+            <button class="course-btn mt-2">Know More</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+<!-- ========================================================================== -->
+<!-- why we choose  -->
+<section class="why-choose-section py-5 text-center mt-3">
+  <div class="container">
+    <h2 class="fw-bold mb-3">Why Choose NexMind?</h2>
+    <p class="text-muted mb-5">
+      Handled technical, Software & functionality and developing products to
+      inspiring-driven strategic design business experiences and innovate your
+      way to improved confidence, overcoming other realities, self-limiting
+      behaviors, depression.
+    </p>
+
+    <div class="row gy-4">
+      <div class="col-6 col-md-3">
+        <div class="feature-box">
+          <div class="icon mb-2 text-primary fs-1">
+            <i class="bi bi-patch-check-fill"></i>
+          </div>
+          <h6 class="fw-semibold">Industry Recognized</h6>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="feature-box">
+          <div class="icon mb-2 text-primary fs-1">
+            <i class="bi bi-briefcase-fill"></i>
+          </div>
+          <h6 class="fw-semibold">Real World Projects</h6>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="feature-box">
+          <div class="icon mb-2 text-primary fs-1">
+            <i class="bi bi-shield-check"></i>
+          </div>
+          <h6 class="fw-semibold">Certification & Personal Support</h6>
+        </div>
+      </div>
+      <div class="col-6 col-md-3">
+        <div class="feature-box">
+          <div class="icon mb-2 text-primary fs-1">
+            <i class="bi bi-gift"></i>
+          </div>
+          <h6 class="fw-semibold">Free Tools and Resources Access</h6>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============================================================================ -->
+  <!-- 🧪 Internship & Projects Section -->
+ <div class="internship-section bg-white">
+  <h2>Internships & Academic Projects</h2>
+  <p class="subtitle">
+    Gain deep industry exposure and hands-on experience with our expertly guided programs.
+  </p>
+
+  <div class="internship-cards">
+    <div class="card" *ngFor="let internship of internships">
+      <img [src]="internship.image" alt="{{internship.title}}" />
+      <h3>{{ internship.title }}</h3>
+      <p class="tagline">{{ internship.tagline }}</p>
+      <p class="description">{{ internship.description }}</p>
+      <button class="enroll-btn">Enroll now</button>
+    </div>
+  </div>
+
+  <button class="apply-btn">Apply for Internship</button>
+</div>
+
+  <!--  ================================================================================ -->
+
+  <!-- 🔧 Tools Section -->
+<div class="fullstack-tools-section">
+  <div class="container">
+    <h2>Master <span>Full Stack Development Tools</span></h2>
+    <p>Gain hands-on experience with the top technologies used by full stack developers across the world.</p>
+
+    <div class="tools-scroll-wrapper">
+      <div class="tools-scroll-track">
+        <div class="tool-card" *ngFor="let tool of tools">
+          <img [src]="tool.icon" [alt]="tool.name" />
+          <span class="tool-name">{{ tool.name }}</span>
+        </div>
+
+        <!-- Duplicate for infinite scroll -->
+        <div class="tool-card" *ngFor="let tool of tools">
+          <img [src]="tool.icon" [alt]="tool.name" />
+          <span class="tool-name">{{ tool.name }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+<!-- ==================================================================== -->
+<!-- 🎯 LMS Features Section -->
+<section class="lms-features-section py-3 bg-white">
+  <div class="container">
+    <div class="content-wrapper">
+      <h2 class="text-center fw-bold mb-4">Key Features of <span style="color: #ff6a00;">NexMind LMS</span></h2>
+      <div class="row g-4">
+
+        <!-- Feature Card 1 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 lms-card">
+            <div class="display-5 mb-3 icon">🎥</div>
+            <h5 class="fw-bold mb-2">Interactive Video Lectures</h5>
+            <p class="text-muted">Engaging and instructor-led sessions to make learning more effective and visual.</p>
+          </div>
+        </div>
+
+        <!-- Feature Card 2 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 lms-card">
+            <div class="display-5 mb-3 icon">📁</div>
+            <h5 class="fw-bold mb-2">Centralized Course Access</h5>
+            <p class="text-muted">All your materials, assignments, and resources in one organized platform.</p>
+          </div>
+        </div>
+
+        <!-- Feature Card 3 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 lms-card">
+            <div class="display-5 mb-3 icon">💬</div>
+            <h5 class="fw-bold mb-2">Live Doubt Solving</h5>
+            <p class="text-muted">Join scheduled sessions or chat with mentors to get your queries resolved instantly.</p>
+          </div>
+        </div>
+
+        <!-- Feature Card 4 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 lms-card">
+            <div class="display-5 mb-3 icon">📝</div>
+            <h5 class="fw-bold mb-2">Assignments & Quizzes</h5>
+            <p class="text-muted">Test your knowledge regularly with real-time assignments and MCQ-based quizzes.</p>
+          </div>
+        </div>
+
+        <!-- Feature Card 5 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 lms-card">
+            <div class="display-5 mb-3 icon">📊</div>
+            <h5 class="fw-bold mb-2">Progress Tracking</h5>
+            <p class="text-muted">Monitor your course progress, completion status, and performance analytics.</p>
+          </div>
+        </div>
+
+        <!-- Feature Card 6 -->
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded-4 shadow-sm text-center h-100 lms-card">
+            <div class="display-5 mb-3 icon">🎯</div>
+            <h5 class="fw-bold mb-2">Career-Ready Focus</h5>
+            <p class="text-muted">Everything is aligned to help you build skills, complete projects, and land jobs.</p>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+<!-- =================================================================================== -->
+  <!-- 🎓 Earn Certificate & Land Job Section -->
+  <div class="certification-wrapper container mt-5">
+  <div class="blur blob-top-left"></div>
+  <div class="blur blob-bottom-right"></div>
+
+  <div class="certification-section">
+    <h1>
+    <b>  Earn Certificates &</b>
+   <b>   Land Your Dream Job</b>
+    </h1>
+
+    <div class="image-container">
+      <img src="https://cdni.iconscout.com/illustration/premium/thumb/online-degree-certificate-illustration-download-in-svg-png-gif-file-formats--university-student-education-business-activities-pack-design-development-illustrations-2280894.png" alt="Certificate Illustration" />
+    </div>
+
+    <p>
+      Every course ends with a verifiable certificate <br />
+      and placement support for eligible students. <br />
+      We help you build a strong portfolio, <br />
+      resume, and Github profile.
+    </p>
+
+    <button class="cta-button">Get Certified</button>
+  </div>
+</div>
+
+
+  <!-- ====================================================================================== -->
+  <!-- Contact Section -->
+  <section id="contact" class="contact section">
+    <div class="container section-title" data-aos="fade-up">
+      <h2>Contact</h2>
+      <p class="mb-5">"Have questions about our platform, need help with your learning journey, or want to share feedback? Our support team is here to guide you every step of the way."</p>
+    </div>
+
+    <div class="container" data-aos="fade-up" data-aos-delay="100">
+      <div class="row gy-4 mb-5">
+
+        <!-- LEFT: Google Map -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="map-container" style="height: 100%; min-height: 400px;">
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3013.5530148646867!2d79.99359310000001!3d14.439406199999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4c4e210f2fa936f3%3A0xac190fcf2478037f!2sNexmind%20software%20solutions!5e1!3m2!1sen!2sin!4v1747996663611!5m2!1sen!2sin"
+              width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"
+              referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+          </div>
+        </div>
+
+        <!-- RIGHT: Contact Info and Form -->
+        <div class="col-lg-6">
+          <div class="row">
+
+            <!-- Contact Info -->
+            <div class="col-12 mb-4">
+              <div class="info-cards">
+
+                <div class="row">
+                  <!-- Contact Number -->
+                  <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="200">
+                    <div class="info-card h-100">
+                      <div class="icon-box"><i class="bi bi-telephone"></i></div>
+                      <h3>Contact Number</h3>
+                      <p>+91 8897227322<br>nexmindsolutions&#64;gmail.com</p>
+                    </div>
+                  </div>
+
+                  <!-- Opening Hour -->
+                  <div class="col-md-6 mb-3" data-aos="fade-up" data-aos-delay="300">
+                    <div class="info-card h-100">
+                      <div class="icon-box"><i class="bi bi-clock"></i></div>
+                      <h3>Opening Hour</h3>
+                      <p>Monday - Saturday: 9:00 - 18:00<br>Sunday: Closed</p>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Address -->
+                <div class="row">
+                  <div class="col-12" data-aos="fade-up" data-aos-delay="100">
+                    <div class="info-card mt-3">
+                      <div class="icon-box"><i class="bi bi-geo-alt"></i></div>
+                      <h3>Our Address</h3>
+                      <p>CNR Heights, 1st Floor, Apollo road, Pinakini Avenue, Ramji Nagar, Nellore,</p>
+                      <p>India, Andhra Pradesh</p>
+                    </div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+            <!-- Contact Form -->
+            <div class="col-12">
+              <form #contactForm="ngForm" (ngSubmit)="onSubmit(contactForm)" novalidate>
+
+                <div class="mb-3">
+                  <label for="name">Name*</label>
+                  <input type="text" name="name" id="name" class="form-control" ngModel required>
+                  <small class="text-danger"
+                    *ngIf="contactForm.controls['name']?.invalid && contactForm.controls['name']?.touched">
+                    Name is required.
+                  </small>
+                </div>
+
+                <div class="mb-3">
+                  <label for="email">Email*</label>
+                  <input type="email" name="email" id="email" class="form-control" ngModel required>
+                  <small class="text-danger"
+                    *ngIf="contactForm.controls['email']?.invalid && contactForm.controls['email']?.touched">
+                    Enter a valid email.
+                  </small>
+                </div>
+
+                <div class="mb-3">
+                  <label for="message">Message*</label>
+                  <textarea name="message" id="message" rows="5" class="form-control" ngModel required
+                    minlength="10"></textarea>
+                  <small class="text-danger"
+                    *ngIf="contactForm.controls['message']?.errors?.['required'] && contactForm.controls['message']?.touched">
+                    Message is required.
+                  </small>
+                  <small class="text-danger"
+                    *ngIf="contactForm?.controls?.['message']?.errors?.['minlength'] && contactForm?.controls?.['message']?.touched">
+                    Message must be at least
+                    {{ contactForm?.controls?.['message']?.errors?.['minlength']?.requiredLength }} characters.
+                  </small>
+                </div>
+
+                <div class="button-container">
+                  <button type="submit" class="btn btn-orange" [disabled]="contactForm.invalid">Send Message</button>
+                </div>
+
+              </form>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+  </main>
+  <app-footer></app-footer>

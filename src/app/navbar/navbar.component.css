@@ -1,0 +1,295 @@
+
+body {
+  color: var(--default-color);
+  background-color: #ffffff;
+  font-family: var(--default-font);
+}
+
+a {
+  color: var(--accent-color);
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+a:hover {
+  color: color-mix(in srgb, var(--accent-color), transparent 25%);
+  text-decoration: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--heading-color);
+  font-family: var(--heading-font);
+}
+
+/* PHP Email Form Messages
+------------------------------*/
+.php-email-form .error-message {
+  display: none;
+  background: #df1529;
+  color: #ffffff;
+  text-align: left;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .sent-message {
+  display: none;
+  color: #ffffff;
+  background: #059652;
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+  font-weight: 600;
+}
+
+.php-email-form .loading {
+  display: none;
+  background: var(--surface-color);
+  text-align: center;
+  padding: 15px;
+  margin-bottom: 24px;
+}
+
+.php-email-form .loading:before {
+  content: "";
+  display: inline-block;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid var(--accent-color);
+  border-top-color: var(--surface-color);
+  animation: php-email-form-loading 1s linear infinite;
+}
+
+@keyframes php-email-form-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/*# Global Header  */
+.header {
+  --background-color: rgba(255, 255, 255, 0);
+  --nav-color: #2c4964;
+  /* --nav-color: #f29970; */
+
+  /* --nav-hover-color: #1977cc; */
+  --nav-hover-color: #e85f1f;
+
+  --nav-dropdown-color: #2c4964;
+  --nav-dropdown-hover-color: #1977cc;
+  --nav-dropdown-background-color: #fff;
+  --nav-mobile-background-color: #fff;
+  
+  background-color: #ffffff;
+  padding: 20px 0;
+  transition: all 0.5s;
+  z-index: 997;
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+}
+
+.header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+/* Add this to your existing CSS */
+.btn-getstarted-mobile {
+  display: block;
+  color: #fff;
+  background: #ff6f28;
+  padding: 10px 20px;
+  margin: 15px 20px;
+  border-radius: 4px;
+  text-align: center;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn-getstarted-mobile:hover {
+  background: #ff6f28;
+  color: #fff;
+  text-decoration: none;
+}
+
+/* Logo Styles */
+.header .logo img {
+  max-height: 55px;
+  transition: all 0.3s;
+}
+
+/* Button Styles */
+.btn-getstarted {
+  color: #fff;
+  background:#ff6f28;
+  font-size: 14px;
+  padding: 8px 26px;
+  border-radius: 4px;
+  transition: 0.3s;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.btn-getstarted:hover {
+  background: #ff5500;
+  box-shadow: 5px 2px 1px solid black;
+  color: #fff;
+  cursor: pointer;
+}
+
+/* ===== Desktop Navigation ===== */
+@media (min-width: 1200px) {
+  .navmenu {
+    margin-left: auto;
+  }
+  
+  .navmenu ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  
+  .navmenu li {
+    position: relative;
+  }
+  
+  .navmenu a {
+    color: var(--nav-color);
+    padding: 18px 15px;
+    font-size: 15px;
+    font-weight: 600;
+    white-space: nowrap;
+    transition: 0.3s;
+    position: relative;
+  }
+  
+  .navmenu a:hover,
+  .navmenu .active {
+    color: var(--nav-hover-color);
+  }
+  
+  .navmenu a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background: var(--nav-hover-color);
+    bottom: 15px;
+    left: 15px;
+    transition: width 0.3s;
+  }
+  
+  .navmenu a:hover::after,
+  .navmenu .active::after {
+    width: calc(100% - 30px);
+  }
+  
+  .mobile-nav-toggle {
+    display: none;
+  }
+}
+
+/* ===== Mobile Navigation ===== */
+@media (max-width: 1199px) {
+  .mobile-nav-toggle {
+    color: #2c4964;
+    font-size: 28px;
+    cursor: pointer;
+    line-height: 0;
+    transition: 0.5s;
+    z-index: 9999;
+  }
+  
+  .mobile-nav-toggle.bi-x {
+    color: #fff;
+  }
+  
+  .navmenu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 100%;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.9);
+    transition: all 0.5s;
+    z-index: 9998;
+    overflow-y: auto;
+  }
+  
+  .navmenu.navmenu-active {
+    right: 0;
+  }
+  
+  .navmenu ul {
+    position: absolute;
+    top: 70px;
+    left: 20px;
+    right: 20px;
+    padding: 10px 0;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.1);
+    display: none;
+  }
+  
+  .navmenu.navmenu-active ul {
+    display: block;
+  }
+  
+  .navmenu li {
+    padding: 0;
+  }
+  
+  .navmenu a {
+    padding: 12px 20px;
+    font-size: 16px;
+    color: #2c4964;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .navmenu a:hover,
+  .navmenu .active {
+    color: #1977cc;
+  }
+  
+  .btn-getstarted {
+    display: none;
+  }
+}
+
+/* Scrolled Header Styles */
+.scrolled .header {
+  background-color: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+}
+
+.scrolled .header .logo img {
+  max-height: 45px;
+}
+
+
+
+
+
+
+
+
+
+
+

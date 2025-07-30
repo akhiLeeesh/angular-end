@@ -1,0 +1,212 @@
+.dashboard-container {
+  font-family: 'Poppins', sans-serif;
+  color: #1a1a1a;
+  padding: 20px;
+  background: #f5f7fa;
+}
+
+/* Hero Section */
+.hero-section {
+  background: linear-gradient(135deg, #7f5af0, #2cb67d);
+  color: white;
+  border-radius: 20px;
+  padding: 40px 30px;
+  margin-bottom: 50px;
+}
+
+.hero-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+.hero-text h1 {
+  font-size: 2.4rem;
+  margin-bottom: 20px;
+}
+
+.highlight {
+  color: #ffe100;
+}
+
+.live {
+  background: #ffffff20;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+.features {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 10px;
+  line-height: 1.8;
+  font-size: 1rem;
+}
+
+.countdown {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.time-box {
+  background: #ffffff25;
+  padding: 10px 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.time-box span {
+  font-size: 1.5rem;
+  font-weight: bold;
+  display: block;
+}
+
+.hero-image {
+  max-width: 320px;
+  text-align: center;
+}
+
+.image-badge {
+  position: relative;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.image-badge img {
+  width: 100%;
+  border-radius: 16px;
+}
+
+.new-badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: #ff4d4d;
+  color: white;
+  padding: 5px 10px;
+  font-size: 0.75rem;
+  border-radius: 8px;
+}
+
+.btn-cta {
+  display: inline-block;
+  margin-top: 15px;
+  background: #fff;
+  color: #2d2d2d;
+  padding: 10px 20px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.btn-cta:hover {
+  background: #ffe100;
+  color: #000;
+}
+
+/* Motivation */
+.motivation {
+  text-align: center;
+  padding: 50px 20px;
+  background: white;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+}
+
+.motivation h2 {
+  font-size: 2rem;
+  margin-bottom: 10px;
+}
+
+.motivation .success {
+  color: #2cb67d;
+}
+
+.actions {
+  margin-top: 20px;
+}
+
+.btn-primary,
+.btn-secondary {
+  margin: 10px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background: #7f5af0;
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #6841e1;
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #1a1a1a;
+}
+
+.btn-secondary:hover {
+  background: #dcdcdc;
+}
+
+.students {
+  margin-top: 30px;
+}
+
+.students img {
+  max-width: 180px;
+}
+
+.students p {
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+/* Resources Section */
+.resources {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  padding: 30px 0;
+  justify-content: center;
+}
+
+.resources button {
+  padding: 10px 20px;
+  border: none;
+  background: #e8f0fe;
+  color: #1a1a1a;
+  border-radius: 12px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.resources button:hover {
+  background: #c3ddff;
+}
+
+@media screen and (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .countdown {
+    justify-content: center;
+  }
+}

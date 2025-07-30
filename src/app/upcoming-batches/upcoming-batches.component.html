@@ -1,0 +1,102 @@
+<app-navbar></app-navbar>
+<div class="container mt-5">
+<div class="wrapper">
+  <!-- Left Content -->
+  <div class="text-section ">
+    <h1>NexMind <span>LMS</span></h1>
+    <p>
+    NexMind LMS provides immersive training with hands-on projects, real-time tools, and expert-designed modules. Each program is tailored to ensure practical learning, technical proficiency, and a seamless, professional experience for every learner.
+    </p>
+  </div>
+
+  <!-- Right Orbit Image Design -- -->
+<div class="hero-wrapper">
+  <div class="blob-shape"></div>
+
+  <img
+    src="assets/img/about/WhatsApp_Image_2025-07-05_at_3.47.49_PM-removebg-preview.png"
+    alt="Student"
+    class="student-img"
+  />
+
+  <div class="orbit">
+    <img src="assets/img/about/html.png" class="orbit-icon icon1" alt="HTML" />
+    <img src="assets/img/about/css.png" class="orbit-icon icon2" alt="CSS" />
+    <img src="assets/img/about/js.jpg" class="orbit-icon icon3" alt="JS" />
+    <img src="assets\img\about\angular1.png" class="orbit-icon icon4" alt="Angular" />
+    <img src="assets\img\about\data1.jpg" class="orbit-icon icon5" alt="Data Science" />
+    <img src="assets\img\about\bulb3-removebg-preview.png" class="orbit-icon icon6" alt="Data Science" />
+
+  </div>
+</div>
+
+</div>
+
+  <!-- ==================================================================================== -->
+  <div class="course-wrapper">
+    <h2 #headingRef class="explore-heading slide-left">
+      Explore <span>Our Courses</span>
+    </h2>
+    <!-- Gen-AI -->
+    <!-- Gen-AI Card -->
+    <div class="course-card">
+      <div class="course-info slide-left" #genaiInfoRef>
+        <h3>Generative AI</h3>
+        <p>
+          Master the fundamentals and applications of Generative AI including Large Language Models, Prompt Engineering,
+          ChatGPT, DALL·E, and real-world AI integrations.
+        </p>
+        <button (click)="goToGenAI()">Know More</button>
+      </div>
+      <div class="course-image slide-right" #genaiImageRef>
+        <img src="assets\img\about\generative-ai.png" alt="Generative AI" />
+      </div>
+    </div>
+
+    <!-- Data Science Card -->
+    <div class="datascience-card mt-4">
+      <div class="datascience-image slide-left" #dataInfoRef>
+        <img src="assets/img/about/datascience2.jpg" alt="Data Science" />
+      </div>
+      <div class="datascience-info slide-right" #dataImageRef>
+        <h3>Data Science</h3>
+        <p>
+          Master Data Science with Python, machine learning, deep learning, and data visualization tools.
+        </p>
+        <button (click)="goToDataScience()">Know More</button>
+      </div>
+    </div>
+
+    <!-- Full Stack Card -->
+    <div class="course-card mt-4">
+      <div class="course-info slide-left" #fullstackInfoRef>
+        <h3>Full Stack Development</h3>
+        <p>
+          Become a full stack web developer by mastering both frontend and backend technologies. Learn HTML, CSS,
+          JavaScript, Angular, Node.js, Express, MongoDB & more.
+        </p>
+        <button (click)="goToFullstack()">Know More</button>
+      </div>
+      <div class="course-image slide-right" #fullstackImageRef>
+        <img src="assets/img/about/fullstack.png" alt="Full Stack Development" />
+      </div>
+    </div>
+
+    <!-- Testing Card -->
+    <div class="testing-card mt-4">
+      <div class="testing-image slide-left" #testingImageRef>
+        <img src="assets/img/about/software_testing.jpg" alt="Software Testing" />
+      </div>
+      <div class="testing-info slide-right" #testingInfoRef>
+        <h3>Software Testing</h3>
+        <p>
+          Learn manual testing, automation with Selenium, API testing, and test case design to become a QA expert.
+        </p>
+        <button (click)="goToTesting()">Know More</button>
+      </div>
+    </div>
+
+  </div>
+<!-- </div> -->
+</div>
+<app-footer></app-footer>

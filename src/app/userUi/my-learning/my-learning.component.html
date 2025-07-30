@@ -1,0 +1,115 @@
+<app-user-nav></app-user-nav>
+<div class="container mt-3">
+    <h4 class="search-header">Search 10,000+ learning programs</h4>
+    </div>
+
+
+<!-- search bar -->
+<div class="search-bar container mt-5">
+
+      <input [(ngModel)]="searchTerm" placeholder="Search courses..." />
+      <button><i class="fa fa-search"></i></button>
+    </div>
+<!-- search bar end -->
+
+
+
+<div class="my-learning-container">  
+
+  <!-- Always visible -->
+  <h2>Career skills that work</h2>
+
+  <!-- Show if course list is hidden -->
+  <div *ngIf="!showCourses" class="placeholder">
+    <p>You haven’t taken any courses yet.</p>
+  </div>
+
+  <!-- Visible after 5s -->
+  <div *ngIf="showCourses">
+
+   
+    
+    <!-- Popular Courses (Styled Differently) -->
+     <div class="popular-courses container">
+      
+    <h6>Popular Courses</h6>
+    <div class="popular-list">
+      <button 
+        *ngFor="let course of popularCourses" 
+        (click)="showCourse(course)" 
+        class="popular-course-btn">
+        {{ course.title }}
+      </button>
+    </div>
+
+    <!-- Show selected course box -->
+    <div *ngIf="selectedCourse" class="course-card">
+      <img [src]="selectedCourse.imageUrl" alt="{{ selectedCourse.title }}" class="card-img" />
+      <div class="card-content">
+        <h3>{{ selectedCourse.title }}</h3>
+        <small>{{ selectedCourse.provider }}</small>
+        <p>{{ selectedCourse.level }} · {{ selectedCourse.type }}</p>
+      </div>
+    </div>
+
+    <!-- c -->
+     <div class="card-grid">
+  <div 
+    class="card" 
+    *ngFor="let course of filteredCourses" 
+    (click)="showCourse(course)"
+  >
+    <div 
+      class="card-image" 
+      [style.backgroundImage]="'url(' + course.imageUrl + ')'" 
+      aria-label="Course image" 
+      role="img">
+    </div>
+
+    <div class="card-content">
+      <p class="card-title">{{ course.title }}</p>
+      <p class="card-description">
+        Provided by {{ course.provider }} | {{ course.level }} · {{ course.type }}
+      </p>
+
+      <div class="card-tags">
+        <span class="card-tag">{{ course.level }}</span>
+        <!-- <span class="card-tag">{{ course.type }}</span> -->
+      </div>
+
+      <div class="card-footer">
+        <div class="card-stats">
+          <!-- <span class="card-stat">
+            <i class="fa fa-graduation-cap card-stat-icon"></i>
+            {{ course.progress }}%
+          </span> -->
+          <span class="card-stat">
+            <i class="fa fa-certificate card-stat-icon"></i>
+            Certificate
+          </span>
+        </div>
+        <div class="card-button-group">
+          <button 
+            class="card-button" 
+            (click)="buyCourse(course); $event.stopPropagation()"
+          >
+           Explore
+          </button>
+          <button 
+            class="card-button" 
+            (click)="addToCart(course); $event.stopPropagation()"
+          >
+            <i class="fa fa-shopping-cart"></i> Add
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  </div>
+</div>
+
+
+
+ 

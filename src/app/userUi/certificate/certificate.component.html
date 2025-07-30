@@ -1,0 +1,92 @@
+<app-user-nav></app-user-nav>
+<div class="certification-landing container">
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-left">
+            <h1>We train and certify<br /><span>Web Developers</span></h1>
+            <p>Welcome to the NexMind Certification Program.<br />
+                Master front-end, back-end, or full-stack development with real-world projects and get globally
+                recognized certification.</p>
+            <button class="primary-btn" (click)="showMyCourses = true">Let's explore your future</button>
+
+        </div>
+        <div class="hero-right">
+            <img src="https://www.creative-tim.com/blog/content/images/size/w960/2022/01/which-development-job-is-right-for-you.jpg"
+                alt="Web Dev Illustration">
+        </div>
+
+
+
+
+
+    </section>
+    <!-- My Learning Courses Section -->
+    <section *ngIf="showMyCourses" class="my-courses-section">
+        <h2>My Learning Courses</h2>
+        <div class="card-grid">
+            <div class="course-card" *ngFor="let course of myCourses">
+                <img [src]="course.imageUrl" alt="{{ course.title }}" />
+                <div class="course-info">
+                    <h3>{{ course.title }}</h3>
+                    <p>{{ course.level }} · {{ course.type }}</p>
+                    <button class="buy-btn">Buy</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<!-- new -->
+<section class="certification-section">
+    <h2 class="section-title">🎓 Your Certifications</h2>
+    <p class="section-subtitle">Showcase your achievements and download your official NexMind certificates.</p>
+
+    <div class="certification-card">
+        <div class="cert-details">
+            <h3>{{ student.username }}'s Certificate</h3>
+            <p class="course-name">Course: Full Stack Web Development</p>
+            <!-- <p class="issued">Issued on: May 30, 2025</p> -->
+            <p class="status"><i class="bi bi-patch-check-fill text-success"></i> Certified</p>
+            <a [href]="student.url" class="btn btn-primary mt-3" target="_blank">
+                <i class="bi bi-download"></i> View / Download Certificate
+            </a>
+        </div>
+        <div class="cert-image">
+            <img src="https://static.vecteezy.com/system/resources/previews/002/349/754/non_2x/modern-elegant-certificate-template-free-vector.jpg"
+                alt="Certificate preview">
+        </div>
+    </div>
+</section>
+<!-- end -->
+
+<!-- Help Section -->
+<!-- <section class="help-section">
+        <h2>How can we <span>help you</span>?</h2>
+        <div class="help-grid">
+            <div class="help-card">
+                <i class="fa fa-certificate"></i>
+                <h3>Get Certified</h3>
+                <p>Earn recognition for your web development skills.</p>
+            </div>
+            <div class="help-card">
+                <i class="fa fa-chart-line"></i>
+                <h3>See How We Compare</h3>
+                <p>Explore how NexMind stands out from others.</p>
+            </div>
+            <div class="help-card">
+                <i class="fa fa-graduation-cap"></i>
+                <h3>Higher Qualifications</h3>
+                <p>Go beyond basics and specialize in stacks like MERN or MEAN.</p>
+            </div>
+            <div class="help-card">
+                <i class="fa fa-users"></i>
+                <h3>Group Training</h3>
+                <p>Upskill your team with custom training sessions.</p>
+            </div>
+            <div class="help-card">
+                <i class="fa fa-video"></i>
+                <h3>Learn Online for Free</h3>
+                <p>Try our free HTML, CSS, JS courses to get started.</p>
+            </div>
+        </div>
+    </section> -->
