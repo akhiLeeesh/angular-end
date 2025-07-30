@@ -1,0 +1,189 @@
+<app-loader [show]="loading"></app-loader>
+
+<div class="dashboard ">
+
+  <header class="top-bar shadow-sm rounded-3">
+    <div class="logo">
+      <img src="../../../assets/img/NexMind_Original_Logo.png" alt="Invent Logo" class="img-fluid w-auto">
+    </div>
+
+    <button class="menu-toggle" (click)="toggleMenu()">
+      ☰
+    </button>
+
+    <nav class="main-nav" [class.active]="menuActive">
+      <a (click)="setTab('add')">Add Student</a>
+      <a (click)="setTab('list')">Students List</a>
+      <a (click)="setTab('demo')">demo registrations</a>
+
+    </nav>
+
+    <div class="user-actions">
+      <div class="user-profile">
+        <span>Admin</span>
+        <button class="btn btn-warning btn-sm" (click)="logout()">Logout</button>
+      </div>
+    </div>
+  </header>
+  <!-- Main Content -->
+  <main class="content px-4 py-4 ">
+    <div class="welcome-section mb-5 shadow-sm rounded-3">
+      <div class="stats-overview">
+        <div class="stat-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Performance</h3>
+            <span class="value">92%</span>
+            <span class="trend positive">8.4%</span>
+          </div>
+        </div>
+        <div class="stat-card">
+          <div class="icon-wrapper">
+            <i class="fas fa-tasks"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Active Tasks</h3>
+            <span class="value">14</span>
+            <span class="trend">Due Today</span>
+          </div>
+        </div>
+        <div class="stat-card" *ngIf="studentCount>0">
+          <div class="icon-wrapper">
+            <i class="fas fa-users"></i>
+          </div>
+          <div class="stat-info">
+            <h3>Total Students</h3>
+            <span class="value">{{studentCount}}</span>
+            <span class="trend positive">2 this week</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Add Student Form -->
+    <div *ngIf="activeTab === 'add'" class="card shadow-sm border-0 rounded-4 p-4">
+      <h3 class="mb-4 fw-semibold text-primary border-bottom pb-2">Add Student</h3>
+      <form (ngSubmit)="submitForm()">
+        <div class="row g-3">
+
+          <!-- First Name -->
+          <div class="col-md-6">
+            <label class="form-label">Full Name</label>
+            <input type="text" class="form-control" placeholder="Enter first name" [(ngModel)]="student.username"
+              name="username" required />
+          </div>
+
+          <!-- Certificate URL -->
+          <div class="col-md-6">
+            <label class="form-label">Certificate URL</label>
+            <input type="url" class="form-control" placeholder="Paste certificate link" [(ngModel)]="student.url"
+              name="url" />
+          </div>
+
+          <!-- Email -->
+          <div class="col-md-6">
+            <label class="form-label">Email</label>
+            <input type="email" class="form-control" placeholder="Enter email" [(ngModel)]="student.email" name="email"
+              required />
+          </div>
+
+          <!-- Phone -->
+          <div class="col-md-6">
+            <label class="form-label">Phone</label>
+            <input type="tel" class="form-control" placeholder="Enter phone number" [(ngModel)]="student.phone"
+              name="phone" required />
+          </div>
+          <!-- Password -->
+          <div class="col-md-6">
+            <label class="form-label">Password</label>
+            <input type="password" class="form-control" placeholder="Enter password" [(ngModel)]="student.password"
+              name="password" required />
+          </div>
+        </div>
+
+        <div class="mt-4 d-flex justify-content-center">
+          <button type="submit" class="btn btn-primary px-5 py-2">Submit</button>
+        </div>
+      </form>
+    </div>
+
+
+    <div *ngIf="activeTab === 'demo'">
+      <h4 class="mb-3 fw-bold text-primary">Demo Registerd Students List</h4>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" *ngFor="let s of demoStudents">
+          <div class="card shadow-sm h-100 border-0 rounded-4">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold">{{ s.name }}</h5>
+              <p class="card-text text-muted mb-1"><strong>Email:</strong> {{ s.email }}</p>
+              <p class="card-text text-muted"><strong>Phone:</strong> {{ s.phone }}</p>
+              <p class="card-text text-muted"><strong>Course:</strong> {{ s.course }}</p>
+              <p class="card-text text-muted"><strong>Date:</strong> {{ s.date }}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Students List -->
+    <div *ngIf="activeTab === 'list'">
+      <h4 class="mb-3 fw-bold text-primary">Students List</h4>
+      <div class="row row-cols-1 row-cols-md-2 row-cols-lg-3 g-4">
+        <div class="col" *ngFor="let s of students">
+          <div class="card shadow-sm h-100 border-0 rounded-4">
+            <div class="card-body">
+              <h5 class="card-title fw-semibold">{{ s.username }}</h5>
+              <p class="card-text text-muted mb-1"><strong>Email:</strong> {{ s.email }}</p>
+              <p class="card-text text-muted"><strong>Phone:</strong> {{ s.phone }}</p>
+              <button class="btn btn-sm btn-outline-primary mt-2" (click)="editStudent(s)">Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- Edit Student Modal -->
+      <div class="modal-overlay" *ngIf="editingStudent">
+        <div class="modal-container">
+          <div class="modal-content p-4 rounded shadow border bg-white">
+            <h5 class="mb-3 text-primary border-bottom pb-2">Edit Student</h5>
+
+            <form (ngSubmit)="updateStudent()">
+              <div class="mb-3">
+                <label class="form-label">Username</label>
+                <input type="text" [(ngModel)]="editingStudent.username" name="username" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Email</label>
+                <input type="email" [(ngModel)]="editingStudent.email" name="email" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Phone</label>
+                <input type="text" [(ngModel)]="editingStudent.phone" name="phone" class="form-control" required>
+              </div>
+
+              <div class="mb-3">
+                <label class="form-label">Certificate URL</label>
+                <input type="text" [(ngModel)]="editingStudent.url" name="url" class="form-control">
+              </div>
+
+              <!-- Buttons -->
+              <div class="d-flex justify-content-end gap-2">
+                <button type="submit" class="btn btn-primary">Update</button>
+                <button type="button" class="btn btn-secondary" (click)="cancelEdit()">Cancel</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+
+
+
+    </div>
+  </main>
+</div>

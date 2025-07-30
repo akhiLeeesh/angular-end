@@ -1,0 +1,67 @@
+
+
+/* new amz */
+.card-content {
+  flex-grow: 1;
+}
+
+.card img {
+  object-fit: contain;
+  max-height: 100px;
+}
+
+.card {
+  border-radius: 10px;
+}
+
+.card img {
+  object-fit: cover;
+}
+
+
+.button-group {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+}
+
+.buy-button,
+.cart-button {
+  padding: 0.4rem 0.8rem;
+  border: none;
+  border-radius: 6px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition:  0.3s;
+}
+
+.buy-button {
+  background-color: #28a745;
+  color: white;
+}
+
+.buy-button:hover {
+  background-color: #218838;
+}
+
+.cart-button {
+  background-color: #dc3545;
+  color: white;
+}
+
+.cart-button:hover {
+  background-color: #c82333;
+}
+.course-scroll-container {
+  overflow-y: auto;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.course-scroll-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+.limited-height {
+  max-height: 220px;
+}

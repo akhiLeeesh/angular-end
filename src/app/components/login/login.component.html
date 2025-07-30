@@ -1,0 +1,64 @@
+
+<app-navbar></app-navbar>
+<app-loader [show]="loading"></app-loader>
+
+<section class=" pt-5 mt-5 p-3 p-md-4 p-xl-5  "   >
+  <div class="container">
+    <div class="card border-light-subtle shadow-sm">
+      <div class="row g-0">
+        <div class="col-12 col-md-6">
+          <img class="img-fluid rounded-start w-100 h-70 object-fit-cover" loading="lazy"
+            src="./assets/img/logo-img-1.webp" alt="BootstrapBrain Logo">
+        </div>
+        <div class="col-12 col-md-6">
+          <div class="card-body p-3 p-md-4 p-xl-5">
+            <div class="row">
+              <div class="col-12">
+                <div class="mb-5">
+                  <h3>Log in</h3>
+                </div>
+              </div>
+            </div>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+              <div class="row gy-3 gy-md-4 overflow-hidden">
+                <div class="col-12">
+                  <label for="email" class="form-label">Email <span class="text-danger">*</span></label>
+                  <input type="email" class="form-control" formControlName="email" id="email"
+                    placeholder="name@example.com" required>
+                  <div *ngIf="loginForm.get('email')?.touched && loginForm.get('email')?.invalid" class="text-danger">
+                    Valid email is required
+                  </div>
+                </div>
+                <div class="col-12">
+                  <label for="password" class="form-label">Password <span class="text-danger">*</span></label>
+                  <input type="password" placeholder="Enter Password" class="form-control" formControlName="password"
+                    id="password" required>
+                  <div *ngIf="loginForm.get('password')?.touched && loginForm.get('password')?.invalid"
+                    class="text-danger">
+                    Password is required
+                  </div>
+                </div>
+                <div class="col-12">
+                </div>
+                <div class="col-12">
+                  <!-- <div class="d-grid">
+                    <button class="btn bsb-btn-xl btn-primary" type="submit">Log in now</button>
+                  </div> -->
+                  <div class="d-grid">
+  <button class="btn bsb-btn-xl" type="submit" style="background-color: #ff6f28; border-color: #ff6f28; color: #fff;">
+    Log in now
+  </button>
+</div>
+
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<app-footer></app-footer>

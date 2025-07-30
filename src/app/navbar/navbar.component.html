@@ -1,0 +1,27 @@
+<header id="header" class="header fixed-top" [class.scrolled]="scrolled">
+  <div class="container d-flex align-items-center justify-content-between">
+    <!-- Logo -->
+    <a href="index.html" class="logo d-flex align-items-center">
+      <img src="../../../assets/img/NexMind_Original_Logo.png" alt="Logo" class="img-fluid" style="height: 55px;">
+    </a>
+
+    <!-- Mobile Toggle Button -->
+    <i class="mobile-nav-toggle bi bi-list d-xl-none" (click)="toggleMobileNav()"></i>
+
+   <nav id="navmenu" class="navmenu" [class.navmenu-active]="mobileNavActive">
+  <ul>
+    <li><a href="" (click)="scrollTo('hero', $event)">Home</a></li>
+    <li><a href="" (click)="scrollTo('courses', $event)">Courses</a></li>
+    <li><a routerLink="/upcoming_batches" (click)="closeMobileNav()">Upcoming Batches</a></li>
+    <li><a href="" (click)="scrollTo('contact', $event)">Contact</a></li>
+    <li><a routerLink="/admin" (click)="closeMobileNav()">Admin</a></li>
+    <li class="d-xl-none">
+      <a class="btn-getstarted-mobile" (click)="navigateToLogin()">Student Login</a>
+    </li>
+  </ul>
+</nav>
+
+    <!-- Desktop Student Login Button -->
+    <a class="btn-getstarted d-none d-xl-inline-flex" (click)="navigateToLogin()">Student Login</a>
+  </div>
+</header>
