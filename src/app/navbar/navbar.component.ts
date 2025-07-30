@@ -21,6 +21,7 @@ export class NavbarComponent {
     this.scrolled = window.scrollY > 50;
   }
 
+  
   onSubmit(form: NgForm): void {
     if (form.valid) {
       console.log('Form Submitted:', form.value);
@@ -34,7 +35,7 @@ export class NavbarComponent {
     this.closeMobileNav();
     this.router.navigate(['/user']);
   }
-  
+
 
   scrollTo(sectionId: string, event: Event) {
     event.preventDefault();
