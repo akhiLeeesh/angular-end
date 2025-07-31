@@ -1,14 +1,12 @@
-version: '3'
+# Stage 1: Build Angular app using lightweight Node
+FROM node:18-alpine as build
 
-services:
-  backend:
-    build: ./backend
-    container_name: backend-container
-    ports:
-      - "5000:5000"
+WORKDIR /app
+COPY package*.json ./
+RUN npm install --legacy-peer-deps
+COPY . .
+RUN npm run build --prod
 
-  frontend:
-    build: ./frontend
-    container_name: frontend-container
-    ports:
-      - "80:80"
+# Stage 2: Serve with Nginx
+FROM nginx:alpine
+COPY --from=build /app/dist/YOUR_PROJECT_NAME /usr/share/nginx/html
